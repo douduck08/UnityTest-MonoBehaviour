@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Tester : MonoBehaviour {
+public class Instantiater : MonoBehaviour {
 
     public GameObject UnitPrefab;
     private GameObject tmp;
@@ -42,17 +42,4 @@ public class Tester : MonoBehaviour {
         // }
     }
 
-    public void ReloadScene() {
-        Debug.Log("=== ReloadScene Start ===");
-        StartCoroutine(StartLoadScene("main"));
-    }
-
-    private IEnumerator StartLoadScene(string sSceneName) {
-        AsyncOperation op = SceneManager.LoadSceneAsync(sSceneName, LoadSceneMode.Single);
-        while (!op.isDone) {
-            yield return new WaitForEndOfFrame();
-            Debug.Log("=== ReloadScene ing ===");
-        }
-        Debug.Log("=== ReloadScene End ===");
-    }
 }

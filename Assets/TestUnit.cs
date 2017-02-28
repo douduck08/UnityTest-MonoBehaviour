@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class TestUnit : MonoBehaviour {
 
+    public int Num = 10;
+
     bool first = true;
     bool firstlate = true;
 
     void Awake() {
-        Debug.Log(name + " Awake");
+        Debug.Log(name + " Awake, Num = " + Num);
     }
 
     void Start () {
-        Debug.Log(name + " Start " + Time.frameCount);
+        Debug.Log(name + " Start, Num = " + Num + "(Frame: " + Time.frameCount);
     }
 
     void OnEnable() {
-        Debug.Log(name + " OnEnable");
+        Debug.Log(name + " OnEnable, Num = " + Num);
     }
 
     void OnDisable() {
@@ -26,7 +28,7 @@ public class TestUnit : MonoBehaviour {
     void Update() {
         if (first) {
             first = false;
-            Debug.Log(name + " Update " + Time.frameCount);
+            Debug.Log(name + " Update (Frame: " + Time.frameCount);
         }
     }
 
